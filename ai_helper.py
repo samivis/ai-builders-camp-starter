@@ -21,9 +21,19 @@ from openai import OpenAI
 BASE_URL = os.environ.get("AI_INTEGRATIONS_OPENAI_BASE_URL")
 API_KEY = os.environ.get("AI_INTEGRATIONS_OPENAI_API_KEY")
 
-# The AI model your app uses. "gpt-5-mini" is fast and affordable — great for camp.
-# Want smarter (and a bit pricier) answers? Try "gpt-5.4".
-MODEL = "gpt-5-mini"
+# Which AI model to use.
+#
+# The OpenAI-compatible API requires a model name — you can't leave it blank.
+# This default works well for camp, but students are encouraged to try others.
+#
+# To change it:
+#   • Edit the string below (students can do this freely in their own Repl), OR
+#   • Set a Replit Secret called REPLIT_AI_MODEL to override it without touching code
+#     (handy for the instructor to swap the whole class to a newer model)
+#
+# The Replit Agent / coding assistant you talk to in the IDE picks its OWN model
+# automatically — this setting only controls calls your *app* makes to the AI.
+MODEL = os.environ.get("REPLIT_AI_MODEL", "gpt-4o-mini")
 
 
 def ai_is_connected():
