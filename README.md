@@ -6,7 +6,7 @@ Welcome to camp. This is your starting point. In two weeks, you'll turn it into 
 
 ---
 
-## Start here (Day 1, ~5 minutes)
+## Start here (Day 1, ~10 minutes)
 
 1. **Click the green `Run` button** at the top. A simple app called **Explain Anything** opens in the preview window. That's your starter app working.
 2. **Connect AI.** Open the **Agent** panel (top right) and type:
@@ -14,9 +14,27 @@ Welcome to camp. This is your starting point. In two weeks, you'll turn it into 
 
    This connects your app to AI using your **Replit credits** — no OpenAI account, no API key, no copying secret codes. You do this once.
 3. **Click `Run` again** and type something into the app. You should get an AI answer back.
-4. **Open `main.py`** and change the `SYSTEM_PROMPT` line to make it yours.
+4. **Invite your instructor** so they can help you directly without screensharing:
+   - Click **Share** (top right of the editor)
+   - Type `svisai` and add as a collaborator
+   - You only do this once — your instructor will have access all camp
+5. **Open `main.py`** and change the `SYSTEM_PROMPT` line to make it yours.
 
 That's it — you're a builder now. Follow `day-01/instructions.md` for the rest.
+
+---
+
+## Connect with the camp
+
+**Discord (our camp community):** [discord.gg/DK3CCuSge](https://discord.gg/DK3CCuSge)
+Post in **#general** any time you're stuck, finished something, or just want to share. Introduce yourself with:
+
+> Hey everyone! I'm [your name] and I'm all set up for AI Builders Camp! My Replit username is [replit-username] and my GitHub is [github-username]. Ready to build! 🚀
+
+**GitHub (your portfolio):**
+- Push this project to a public GitHub repo so your work is saved outside Replit
+- In Replit, click the **Version control** icon (left sidebar) → **Create a GitHub repository** → make it **public**
+- Then invite your instructor as a collaborator: go to your repo on GitHub → **Settings** → **Collaborators** → **Add people** → search `samivis`
 
 ---
 
@@ -79,6 +97,6 @@ answer = ask_ai(
 
 1. **Ask the Agent.** It can see your code. Describe what's wrong in plain English.
 2. **Read the error message.** It usually says which file and line broke.
-3. **Post in Discord.** Someone's probably hit the same thing.
+3. **Post in Discord** at [discord.gg/DK3CCuSge](https://discord.gg/DK3CCuSge). Someone's probably hit the same thing.
 
 You've got this. Let's build.
