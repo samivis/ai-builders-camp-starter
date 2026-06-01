@@ -108,7 +108,7 @@ Before you leave today:
 
 ## Homework
 
-Start gathering design references for Day 3. You'll use these to create a design doc that Replit Agent follows when building your app's look and feel.
+Start gathering design references for Day 3. You'll use these to create a design spec that an AI agent follows when building your app's look and feel on Day 4.
 
 Save **5–10 things** that inspire you into your `day-03/design/references/` folder:
 - **Color palette** from Coolors.co — hit spacebar to generate, click to lock, screenshot it
@@ -117,7 +117,7 @@ Save **5–10 things** that inspire you into your `day-03/design/references/` fo
 - **App screenshots** — screenshot 2–3 real apps you use that look great. Note what you like about each one.
 - **Pinterest board** (optional) — search "[your app type] UI" for mood board inspiration
 
-The more specific your references, the better your design doc will be. "I like how Spotify uses dark backgrounds with bright green accents" beats "I like dark mode."
+The more specific your references, the better your design spec will be. "I like how Spotify uses dark backgrounds with bright green accents" beats "I like dark mode."
 
 ---
 
