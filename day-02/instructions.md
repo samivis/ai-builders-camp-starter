@@ -1,118 +1,129 @@
-# Day 2 — Build Something Useful
+# Day 2 — Spec + Scaffold
 
-**Duration:** 60 min · **Theme:** You don't want a generic AI. You want one that solves your actual problem.
+**Duration:** 60 min · **Theme:** Before you build, know what you're building.
 
 ---
 
 ## Today's goal
 
-Write a 2-sentence spec for your project. Build v1 — one real feature that solves an actual problem you have.
+Pick your project idea. Write a tech spec. Set up your APIs and tools. Have Replit Agent scaffold the project structure. Leave today with a project that runs — architecture in place, ready for design and features.
 
 ---
 
 ## The one idea you need
 
-Generic prompts get generic results. Specific prompts get useful results.
-
-The difference between a tool you'd actually use and one you'd close after 10 seconds is almost always the prompt. Today you learn to write prompts that work.
+Building without a spec is like cooking without a recipe — you'll end up with something, but probably not what you wanted. Today you write down exactly what you're building, what it needs, and how it works. Then you hand that spec to Replit Agent and let it set up the project for you.
 
 ---
 
-## Key concept: the prompt structure
+## Step 1 — Pick your idea (5 min)
 
-Every good AI prompt has four parts:
+You brainstormed 3 problems in your Day 1 homework. Pick **one**. The best one is the one where you can clearly say:
 
-| Part | What it does | Example |
-|---|---|---|
-| **Role** | Tells the AI who it is | "You are a high school study tutor" |
-| **Context** | Tells it what situation it's in | "The student is 15, studying for AP US History" |
-| **Constraint** | Sets limits on the output | "Use simple language, max 150 words" |
-| **Format** | Tells it how to respond | "Return 5 multiple-choice questions with answers" |
+- WHO has this problem
+- WHAT the tool does about it
+- WHAT the user types in and what comes back
 
-You don't need all four every time. But the more specific you are, the more useful the output.
+If you're stuck between two, pick the simpler one. You can always make it smarter later. You cannot un-complicate something you over-scoped.
 
-**Before:**
-> "You are a helpful assistant."
-
-**After:**
-> "You are a high school study tutor who specializes in making complex topics simple. The student is 15 and preparing for a US History AP exam. Use simple language, no jargon, maximum 150 words. Return a 5-question multiple-choice quiz with answers labeled (A) through (D)."
-
-Same model. Completely different output.
+Post your pick in Discord: *"I'm building [name] — it [does what] for [who]."*
 
 ---
 
-## Step 1 — Write your 2-sentence spec
+## Step 2 — Write your tech spec (10 min)
 
-Before you write a single line of code, write this:
+Open `day-02/spec-template.md` in your project. Fill it out:
 
-> **[Tool name]** helps **[who]** do **[what]** by **[how]**. The input is **[what the user gives it]** and the output is **[what comes back]**.
+- **Project name** and one-sentence description
+- **The problem** — who has it and why it matters
+- **How it works** — input → what the AI does → output
+- **APIs and tools needed** — AI model, Discord, Gmail, Calendar, weather, etc.
+- **What the user sees** — main screen, key interactions
+- **What happens behind the scenes** — routes, AI calls, data storage
 
-**Example:**
-*Study Buddy helps high-schoolers break down complex topics by turning any paragraph into a 5-question quiz. The input is a chunk of text and the output is 5 multiple-choice questions with answers.*
+Save it as `spec.md` in your project root. This is your north star — Replit Agent will build from this.
 
-Post your spec in Discord. Wait for a green light before building. If it says "helps people do things better" — it's too vague. Try again.
+Post your completed spec in Discord. Wait for a green light before moving on.
 
-> ✅ Green light: your spec names a specific person, a specific input, and a specific output.
-
----
-
-## Step 2 — Build your v1
-
-You'll keep building in `main.py` — the file you started with on Day 1. This is your capstone now. It grows with you for the rest of camp; you don't start a new project each day.
-
-Tell Replit Agent what you're building:
-
-> "I'm building [your tool name]. [Paste your 2-sentence spec.] Rework my main.py and templates/index.html into this tool, with a text input and a submit button. The AI should respond using this system prompt: [paste your role/context/constraint/format prompt]."
-
-Let Agent build it. Click **Run** when it's done.
+> ✅ Green light: your spec names a specific person, a specific input, a specific output, and the APIs it needs.
 
 ---
 
-## Step 3 — Iterate the prompt
+## Step 3 — Set up APIs and tools (10 min)
 
-Your first result probably isn't great. That's expected and normal.
+Most projects only need the AI model, which Replit handles automatically. But if your project connects to other services, set them up now:
 
-Look at the output and ask:
-- Is it the right length?
-- Is it the right tone?
-- Is it missing something obvious?
+**For everyone:**
+- AI model access is already set up via Replit's managed integrations. No keys needed.
 
-Then fix one thing at a time. Tell Agent: *"The output is too long — add a constraint to keep it under 100 words"* or *"It sounds too formal — change the tone to casual and friendly."*
+**If your project needs external APIs:**
+- Go to the **Secrets** tab in Replit (lock icon in the left sidebar)
+- Add any API keys your project needs (Discord bot token, weather API key, etc.)
+- Tell Replit Agent: *"I've added [KEY_NAME] to my Secrets. Here's what it's for: [explanation]."*
 
-Do at least 2 iterations. The prompt that makes you think "oh this is actually useful" is the one you keep.
+> ⚠️ Never paste API keys directly in your code. Always use Secrets.
+
+If you're not sure what APIs you need, ask Replit Agent: *"Based on my spec, what APIs or integrations do I need to set up?"*
 
 ---
 
-## Step 4 — Share it
+## Step 4 — Scaffold with Replit Agent (15 min)
 
-Deploy your v1 and post the link in Discord.
+This is the big move. Paste your spec into Replit Agent and tell it:
 
-> ✅ Ship proof: live URL in `#day-2-ships` + one sentence describing what your tool does.
+> "Here's my tech spec for [project name]. Create the project structure — files, routes, templates, dependencies — based on this spec. Set up the architecture but don't build the features yet. I want a running scaffold that I can add design and features to later. Here's my spec: [paste spec]"
+
+Let Agent build the scaffold. Click **Run** when it's done.
+
+You should see a working app shell — maybe a homepage with placeholder text, the right file structure, dependencies installed. It won't DO anything yet. That's the point.
+
+> ✅ Green light: the scaffold runs, the file structure matches your spec, and you can see where the features will go.
+
+---
+
+## Step 5 — Save it (5 min)
+
+Save your spec to the repo and verify everything runs:
+
+- `spec.md` is in your project root
+- The scaffold runs when you click Run
+- All secrets/keys are in place
+
+If GitHub is set up, push: commit message `"Day 2: spec + scaffold"`
+
+> ✅ Ship proof: running scaffold + spec posted in `#day-2-ships`.
 
 ---
 
 ## Checkpoint
 
 Before you leave today:
-- [ ] 2-sentence spec written and approved
-- [ ] v1 of your project running with a real prompt
-- [ ] At least 2 prompt iterations done
-- [ ] Live URL deployed and posted
-- [ ] (Bonus) First GitHub push from Day 1 if you haven't done it yet
+- [ ] One project idea picked and committed to
+- [ ] Tech spec written and posted in Discord
+- [ ] APIs/tools set up in Replit Secrets
+- [ ] Project scaffolded by Replit Agent and running
+- [ ] (Bonus) Pushed to GitHub
 
 ---
 
 ## Homework
 
-Use your tool **3 times** before Day 3. Write down one thing that's annoying about the output. Come ready to say one specific thing you want to fix.
+Start gathering design references for Day 3. You'll use these to create a design doc that Replit Agent follows when building your app's look and feel.
 
-Not "it's bad." Something like: "It always uses bullet points when I want a paragraph" or "The tone is too formal."
+Save **5–10 things** that inspire you into your `day-03/design/references/` folder:
+- **Color palette** from Coolors.co — hit spacebar to generate, click to lock, screenshot it
+- **Fonts** from Google Fonts — find a heading font and a body font you like
+- **Design ideas** from Variant (variant.com) — type what you're building, scroll, screenshot what you like
+- **App screenshots** — screenshot 2–3 real apps you use that look great. Note what you like about each one.
+- **Pinterest board** (optional) — search "[your app type] UI" for mood board inspiration
+
+The more specific your references, the better your design doc will be. "I like how Spotify uses dark backgrounds with bright green accents" beats "I like dark mode."
 
 ---
 
 ## You now know
 
-- How to write a 2-sentence spec so you actually know what you're building
-- The role/context/constraint/format prompt structure
-- Why specific prompts beat generic ones every time
-- That prompts almost never work on the first try — and how to iterate
+- How to write a tech spec so you and your AI agent know exactly what to build
+- What APIs and tools your project needs and how to set them up
+- How to have Replit Agent scaffold a project from a spec
+- Why building without a spec leads to scope creep and wasted time

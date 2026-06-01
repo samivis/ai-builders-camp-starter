@@ -1,129 +1,131 @@
-# Day 3 — Design + Anti-AI Slop
+# Day 3 — Design + Build
 
-**Duration:** 60 min build + 60 min optional office hours · **Theme:** AI can generate beautiful UI. It can also generate garbage that looks like everyone else's app. You decide which.
+**Duration:** 60 min build + 60 min optional office hours · **Theme:** AI can build you anything. Make sure it builds something that looks like YOU.
 
 ---
 
 ## Today's goal
 
-Apply a real design pass to your project. Lock in a color palette, a font, and a consistent tone. Push it to GitHub.
+Create a design doc from your references. Then give Replit Agent both your tech spec (from Day 2) and your design doc — and have it build v1 of your app with intentional design from the start.
 
 ---
 
 ## The one idea you need
 
-**AI slop** is the aesthetic fingerprint of uncritical AI generation: generic blue + white gradients, cards with rounded corners and no hierarchy, stock photos, headers that say "Welcome to Your Dashboard."
+**AI slop** is what happens when you let an AI build your app's design with zero direction: generic blue gradients, rounded cards, "Welcome to Your Dashboard" headers. It looks finished but it says nothing about you or your users.
 
-It looks finished but it communicates nothing — no personality, no opinion, no point of view.
-
-The fix isn't hard. You just have to make **3 deliberate decisions and stick to them.**
+The fix: **give the AI specific design references instead of letting it guess.** A folder of screenshots, palettes, and fonts you like is worth more than 100 words of description.
 
 ---
 
-## The 3 decisions
+## The design reference workflow
 
-### Decision 1 — Palette (4 colors, that's it)
-- One background color
-- One primary color (buttons, links)
-- One accent color (highlights, something special)
-- One text color
-
-Use **[Coolors.co](https://coolors.co)** — hit spacebar to generate, click a color to lock it. Give yourself exactly **5 minutes** to pick. Then stop. Lock it in.
-
-### Decision 2 — Type (2 fonts, that's it)
-- One font for headings
-- One font for body text (or use the same font for both)
-
-Use **[Google Fonts](https://fonts.google.com)** — search for a font, preview it, grab the `<link>` tag. Good starting pairs: DM Sans + Playfair Display, Space Mono + Inter, Fraunces + DM Sans.
-
-### Decision 3 — Tone (one voice, everywhere)
-Pick one and apply it to every button, error message, label, and placeholder:
-- **Casual + direct:** "Let's go" / "Oops, try again" / "What do you need?"
-- **Warm + encouraging:** "Ready when you are" / "Almost there!" / "Nice one."
-- **Dry + deadpan:** "Input required." / "That didn't work." / "Done."
-
-Your copy tone is part of your design. Inconsistency is slop.
+1. **Gather inspo** — you started this in Day 2 homework
+2. **Feed it to Replit Agent** — use the pre-written prompt
+3. **Agent creates your design doc** — palette, fonts, tone, visual direction
+4. **Agent builds v1** — using your tech spec AND your design doc together
 
 ---
 
-## Build steps
+## Step 1 — Finish your design references (15 min)
 
-**Step 1 — Make your 3 decisions (5 min each = 15 min)**
+Check your `day-03/design/references/` folder. You should have 5–10 items from homework. If not, gather them now:
 
-Open Coolors, Google Fonts, and a text editor. Lock in:
-- [ ] 4 hex colors written down
-- [ ] 2 font names written down
-- [ ] 1-word tone description written down
+**Color palette** — go to [Coolors.co](https://coolors.co). Hit spacebar to generate palettes. Click a color to lock it. When you find one you like, screenshot it and save to your references folder. Give yourself **5 minutes max** — the rabbit hole is real.
 
-Post your choices in Discord before touching any code.
+**Fonts** — go to [Google Fonts](https://fonts.google.com). Pick one font for headings and one for body text. Screenshot your picks. Good starter pairs: DM Sans + Playfair Display, Space Mono + Inter, Fraunces + DM Sans.
 
-**Step 2 — Apply the design**
+**Design explorations** — go to [Variant](https://variant.com). Type what you're building, scroll through the generated designs, screenshot the ones that match the vibe you want.
 
-Tell Replit Agent:
+**Real app screenshots** — open 2–3 apps you actually use and love the design of. Screenshot them. Write one sentence about what you like: "Spotify: dark bg, bright green accents, clean cards."
 
-> "I want to apply a design system to my app (main.py, templates/index.html, static/style.css). Here are my choices:
-> - Colors: background [hex], primary [hex], accent [hex], text [hex]
-> - Fonts: headings [font name], body [font name] (import from Google Fonts)
-> - Tone: [your tone]
+**Pinterest** (optional) — search "[your app type] UI design" and save a few pins.
+
+Post in Discord: *"My design vibe is ___"* with one reference image.
+
+---
+
+## Step 2 — Create your design doc (10 min)
+
+Make sure all your references are in `day-03/design/references/`. Then open `day-03/design/AGENT-PROMPT.md` — it has a pre-written prompt you can paste directly into Replit Agent.
+
+The prompt tells Agent to:
+- Look at everything in your references folder
+- Create a `design-doc.md` with your color palette, fonts, tone, and visual direction
+- Reference your specific images to explain why it chose each element
+
+Review what Agent creates. Does it match your vibe? If not, tell it: *"The palette is too bright — I want something more muted like the Spotify screenshot"* or *"Change the heading font to [font name]."*
+
+Save the final `design-doc.md` in your project root, next to your `spec.md`.
+
+> ✅ Green light: you have a design doc that matches your references and you'd be proud to show someone.
+
+---
+
+## Step 3 — Build v1 with design (20 min)
+
+Now the magic. Tell Replit Agent:
+
+> "I have two reference docs for my project:
+> 1. My tech spec: [paste path to spec.md or paste contents]
+> 2. My design doc: [paste path to design-doc.md or paste contents]
 >
-> Update the HTML/CSS so everything uses these consistently. Also update all button labels and placeholder text to match the [your tone] tone."
+> Build the first version of my app following both documents. The app should work (based on the spec) and look intentional (based on the design doc). Start with the main screen and one core feature."
 
-Review what it does. If something looks off, fix it one piece at a time.
+Let Agent build. Click **Run**. You should see an app that:
+- Actually does something (the core feature from your spec)
+- Looks like YOUR design choices, not generic AI defaults
 
-**Step 3 — Add icons (optional but fast)**
+If something looks off, iterate: *"The buttons don't match my design doc — they should be [color] with [style]."*
 
-Go to **[Heroicons.com](https://heroicons.com)** — find 1-2 icons that fit your app. Copy the SVG code. Tell Agent where to put them.
+---
 
-**Step 4 — Before/after screenshot**
+## Step 4 — Push to GitHub
 
-Take a screenshot of your app before the design pass (or remember what it looked like). After you're done, post both in `#day-3-ships` in Discord with one sentence: *"This looks like [your app]'s vibe because ___."*
+This is the day you push to GitHub if you haven't yet.
 
-> ✅ Ship proof: before/after + one sentence on why your design choices aren't random.
-
-**Step 5 — Push to GitHub**
-
-In the Replit Git panel (left sidebar, branch icon):
-- Write a commit message: `"Day 3: design pass — palette, fonts, tone locked"`
+In the Replit Git panel:
+- Commit message: `"Day 3: v1 with design — spec + design doc + working app"`
 - Click **Push**
 
-> ✅ First GitHub push if you haven't done it yet — this is the day.
+> ✅ Ship proof: screenshot of your running app + one sentence about your design choices in `#day-3-ships`.
 
 ---
 
-## Optional office hours (60 min after the main session)
+## Optional office hours (60 min)
 
 Stay if you want:
 - **Peer review pairs:** swap with another student. Give 3 observations: "this looks intentional," "this looks like slop," "I'd change this."
-- **CSS variables:** advanced — set up `--primary`, `--accent`, etc. as variables so the AI never picks a random color again
-- **Design help:** stuck on the look? Bring your screen
+- **Design iteration:** refine your design doc and have Agent apply changes
+- **Feature polish:** iterate on your core feature
 
 ---
 
 ## Checkpoint
 
 Before you leave today:
-- [ ] 4-color palette locked and applied
-- [ ] 1-2 fonts applied consistently
-- [ ] Copy tone consistent across all text
-- [ ] Before/after posted in Discord
-- [ ] Code pushed to GitHub
+- [ ] Design references gathered (5–10 items)
+- [ ] Design doc created from references
+- [ ] v1 built with both spec and design doc
+- [ ] App runs and looks intentional
+- [ ] Pushed to GitHub
 
 ---
 
 ## Homework
 
-Open **3 apps you actually use** (Spotify, YouTube, iMessage, whatever). For each one, identify:
-- Their primary color
-- Their font style (serif, sans-serif, monospace, handwritten)
-- Their copy tone (formal, casual, playful, minimal)
+Use your app **3 times** before Day 4. Write down:
+- One thing that's **annoying about the output** (the AI response, the feature behavior)
+- One thing that **looks off about the design** (a color, a font, spacing, a label)
 
-Come to Day 4 ready to share one thing you're taking from one of them for your own app.
+Come to Day 4 ready to say both. We're adding intelligence next — chaining AI steps to make your tool feel like it's actually thinking.
 
 ---
 
 ## You now know
 
 - What AI slop is and exactly why it happens
-- The 3 decisions (palette, type, tone) that give any app an identity
-- How to pick a color palette in under 5 minutes using Coolors
-- How to push your code to GitHub
+- How to gather design references that give an AI agent real taste
+- How to create a design doc from references using Replit Agent
+- That giving the AI specific references beats letting it guess every time
+- How to have Replit Agent build from both a tech spec and a design doc
