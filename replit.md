@@ -38,7 +38,18 @@ This is a student project for **AI Builders Camp**, a coding camp for ages 13–
 
 This project includes Agent Skills in `.agents/skills/`. Each skill is a step-by-step workflow the student can invoke by telling Agent to "use the [skill-name] skill."
 
-Skills are generated from the curriculum using the make-lesson-starter command. See `.agents/skills/` for the current list.
+Current skills, by camp day:
+
+| Skill | Day | What it does |
+|---|---|---|
+| `create-spec` | 2 | Write a tech spec, then scaffold the project structure from it |
+| `design-spec` | 4 | Turn design references into a `design-spec.md` |
+| `build-v1` | 4 | Build v1 from both specs, then evaluate and iterate |
+| `add-automation` | 6 | Add one automation: scheduled job, bot, or recurring task |
+| `ethics-review` | 7 | Review the app for privacy, bias, security, safety, transparency |
+| `gtm-plan` | 7 | Write a pitch + GTM plan, polish the README, ship one GTM action |
+
+Skills are generated from the curriculum using the make-lesson-starter command.
 
 ## When helping the student
 
