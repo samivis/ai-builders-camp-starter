@@ -4,7 +4,19 @@ Add one working automation to the student's app — a scheduled job, a bot comma
 
 ## When to use
 
-When the student is on Day 6, or says "use the add-automation skill" / "make my app do something automatically" / "add a bot."
+When the student is on Day 6, or says "use the add-automation skill" / "make my app do something automatically" / "add a bot" / "set up the homework reminder."
+
+## Quick guided path: Discord homework reminder (the default Day 6 exercise)
+
+If the student just wants the fast, everyone-can-do-it automation, use the ready-made starter file `day-06/reminder_bot.py`. It posts a message to Discord on a schedule using a **webhook** — no bot token, no OAuth, no new packages. Walk them through it:
+1. **Make a webhook** in a Discord channel they can manage. If they aren't an admin of the class server, tell them to create their own free server (the green + in Discord) — they control everything there. Channel → Edit Channel → Integrations → Webhooks → New Webhook → Copy Webhook URL.
+2. **Store it as a Secret** named `DISCORD_WEBHOOK_URL` (Tools → Secrets). Never put the URL in code.
+3. **Run it** (`day-06/reminder_bot.py`) and confirm the message appears in Discord.
+4. **Schedule it** as a Replit Scheduled Deployment with run command `python3 day-06/reminder_bot.py`, set to fire before class. Mention scheduled deployments use deployment credits.
+5. **Bonus:** flip `USE_AI = True` in the file so `ask_ai()` writes a fresh reminder each run — connecting the AI they already know to automation.
+Rescue path: if scheduling is fiddly, just clicking Run fires it — that still proves the concept.
+
+Students who'd rather automate their OWN app instead of the reminder exercise: use the general workflow below.
 
 ## Replit rules
 - For AI calls: use `ask_ai()` from `ai_helper.py`. Do NOT create a new OpenAI client or ask the student for an API key — Replit Managed AI is already wired up.
