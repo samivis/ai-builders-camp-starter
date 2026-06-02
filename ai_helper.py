@@ -18,8 +18,15 @@ from openai import OpenAI
 
 # These two values are set up automatically by Replit when AI is connected.
 # You never type a key. You never see a key. Replit handles it.
-BASE_URL = os.environ.get("AI_INTEGRATIONS_OPENAI_BASE_URL")
-API_KEY  = os.environ.get("AI_INTEGRATIONS_OPENAI_API_KEY")
+#
+# We read them fresh on every call (not just once when the file loads) so that
+# the moment Replit finishes connecting AI, your app picks it up — no need to
+# edit this file.
+def _ai_credentials():
+    return (
+        os.environ.get("AI_INTEGRATIONS_OPENAI_BASE_URL"),
+        os.environ.get("AI_INTEGRATIONS_OPENAI_API_KEY"),
+    )
 
 # Which AI model to use.
 #
@@ -51,7 +58,8 @@ _CAMP_GUIDELINES = (
 
 def ai_is_connected():
     """True if Replit AI is set up and ready to go."""
-    return bool(BASE_URL) and bool(API_KEY)
+    base_url, api_key = _ai_credentials()
+    return bool(base_url) and bool(api_key)
 
 
 def ask_ai(prompt, system_prompt="You are a helpful, friendly assistant."):
@@ -62,14 +70,23 @@ def ask_ai(prompt, system_prompt="You are a helpful, friendly assistant."):
     system_prompt = the AI's personality / instructions (this is where the magic is —
                     change it to change how your tool behaves!)
     """
-    if not ai_is_connected():
+    base_url, api_key = _ai_credentials()
+    if not (base_url and api_key):
         return (
-            "AI isn't connected yet. Open the Agent panel (top right) and say:\n"
-            "'Please set up Replit AI so my app can make AI calls.'\n"
+            "AI isn't connected yet.\n"
+            "\n"
+            "In the Agent panel, say:\n"
+            '  "Please set up Replit AI so my app can make AI calls."\n'
+            "Approve the OpenAI integration, then verify your phone if asked.\n"
+            "\n"
+            "Still seeing this afterward? The keys sometimes don't save on the\n"
+            "first try. Tell the Agent:\n"
+            '  "The AI secrets aren\'t set yet -- please re-provision the OpenAI\n'
+            '   integration and restart the app."\n'
             "Then run your app again."
         )
 
-    client = OpenAI(base_url=BASE_URL, api_key=API_KEY)
+    client = OpenAI(base_url=base_url, api_key=api_key)
 
     # Combine camp guidelines with the student's custom system prompt.
     full_system = f"{_CAMP_GUIDELINES}\n\n{system_prompt}"
