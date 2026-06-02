@@ -20,7 +20,7 @@ Welcome to camp. This is your starting point. In two weeks, you'll turn it into 
    - You only do this once — your instructor will have access all camp
 5. **Open `main.py`** and change the `SYSTEM_PROMPT` line to make it yours.
 
-That's it — you're a builder now. Follow `day-01/instructions.md` for the rest.
+That's it — you're a builder now. Each day, follow along at **[aibuilderscamp.com](https://aibuilderscamp.com)** — the lesson page has the slides, what to try, and your homework. This repo is your workspace: when your instructor says "run this" or "do this homework," everything's already set up here for you.
 
 ---
 
