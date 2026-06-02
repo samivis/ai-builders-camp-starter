@@ -62,18 +62,6 @@ You need a free GitHub account to save your code and build your portfolio.
 
 ---
 
-### Step 5 — Make it yours
-
-Open `main.py` and change the `SYSTEM_PROMPT` line — one line change, totally different tool:
-
-```python
-SYSTEM_PROMPT = "You explain any topic like a hyped sports announcer calling the play-by-play."
-```
-
-Run it and try it out. That's yours now.
-
----
-
 ## Day 1 — in class, live together
 
 The instructor shares their screen and walks through these steps. Campers follow along. If anyone gets stuck, they raise their hand and the instructor helps right there.
@@ -156,7 +144,7 @@ Post in **#general**:
 
 ---
 
-## Your first customization
+## Day 1 — Make it yours (first customization)
 
 Open `main.py` and change the `SYSTEM_PROMPT` line — one line change, totally different tool:
 
