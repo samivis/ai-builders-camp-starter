@@ -1,6 +1,6 @@
-# Project Context (for Replit Agent)
+# replit.md — Project Context
 
-This file gives the Replit Agent context about this project so it gives better help. If you're a student: you don't need to read this — but the Agent does.
+Replit Agent reads this file automatically on every request. Students: you don't need to read this — but your Agent does. Your daily guides are Agent Skills — invoke them by name or follow the in-class slides.
 
 ## What this is
 
@@ -33,7 +33,12 @@ This is a student project for **AI Builders Camp**, a coding camp for ages 13–
 
 - The Run button runs `main.py`, a Flask app that binds to `0.0.0.0` on the `PORT` env var (default 5000).
 - `main.py` is the student's main app. It starts as a simple "Explain Anything" tool and grows across camp.
-- `day-05/agent-starter.py` is a standalone console program (an AI agent) — run it from the Shell with `python3 day-05/agent-starter.py`.
+
+## Agent Skills
+
+This project includes Agent Skills in `.agents/skills/`. Each skill is a step-by-step workflow the student can invoke by telling Agent to "use the [skill-name] skill."
+
+Skills are generated from the curriculum using the make-lesson-starter command. See `.agents/skills/` for the current list.
 
 ## When helping the student
 

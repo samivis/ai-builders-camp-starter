@@ -43,16 +43,15 @@ Post in **#general** any time you're stuck, finished something, or just want to 
 ```
 main.py              ← YOUR APP. The Run button runs this. You grow it all camp.
 templates/index.html ← what your app looks like (the web page)
-static/style.css     ← your app's colors and styling (you'll make this yours on Day 3)
+static/style.css     ← your app's colors and styling
 ai_helper.py         ← your shortcut to AI. Just import ask_ai and use it.
-
-day-01/ ... day-07/  ← one folder per session. Open instructions.md and follow along.
-day-05/agent-starter.py ← a working AI agent you'll customize on Day 5
+replit.md            ← tells your Replit Agent about the project (it reads this automatically)
+.agents/skills/      ← guided workflows your Agent knows how to follow
 
 examples/            ← three finished mini-apps to read for ideas
 ```
 
-You build ONE app across all of camp — it lives in `main.py` and gets better every day. The `day-XX` folders are your lesson guides.
+You build ONE app across all of camp — it lives in `main.py` and gets better every day.
 
 ---
 
@@ -83,12 +82,12 @@ answer = ask_ai(
 | Day | You build |
 |---|---|
 | 1 | Your first AI tool, deployed to a live link |
-| 2 | A tool that solves a real problem (with a proper prompt) |
-| 3 | A design pass — your app gets a real identity |
-| 4 | A smarter, multi-step version + midpoint demo |
-| 5 | A working AI agent that uses tools |
-| 6 | A pitch, a polished README, and your first users |
-| 7 | Final polish + your 60-second demo |
+| 2 | A tech spec + scaffolded project, ready to design |
+| 3 | Design references — your app's visual identity starts here |
+| 4 | A design spec + working v1, built from your specs |
+| 5 | Midpoint demo + feature direction for week 2 |
+| 6 | Automation — a scheduled job, bot, or recurring task |
+| 7 | Ethics review + GTM plan + final polish |
 | 8 | Demo Day 🎉 |
 
 ---
