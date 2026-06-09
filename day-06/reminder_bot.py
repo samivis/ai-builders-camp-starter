@@ -3,26 +3,25 @@ reminder_bot.py — your first automation 🤖
 
 Day 6 "try it": make something happen AUTOMATICALLY, without you clicking Run.
 
-This little program posts a homework reminder into Discord. Once it works,
-you'll Publish it as a Scheduled Deployment so it pings the channel before
-class — every time, on its own. THAT is automation: code that does a real
-thing in the world while you're not even looking.
+This little program posts a homework reminder into the shared #automations
+channel on Discord — and @mentions YOU so you get pinged. Once it works,
+you'll Publish it as a Scheduled Deployment so it fires before class every
+time, on its own. THAT is automation: code that does a real thing in the
+world while you're not even looking.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SET IT UP (about 10 minutes)
+SET IT UP (about 5 minutes)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-1. Get a Discord "webhook" — a private link that lets your code post to a channel.
-     • Open a Discord server you can manage. Not an admin of the class server?
-       Click the green + on the left to make your OWN free server (10 seconds) —
-       it's a perfect sandbox and you control everything.
-     • Pick a channel  →  hover it  →  ⚙️ Edit Channel  →  Integrations
-       →  Webhooks  →  New Webhook  →  "Copy Webhook URL"
-
-2. Store that URL as a Secret so it stays private (never paste it into your code):
+1. Your instructor will share a webhook URL for the #automations channel.
      • In Replit, open the Tools panel  →  Secrets
-     • New secret →  key:  DISCORD_WEBHOOK_URL    value: (paste your URL)
+     • New secret →  key:  DISCORD_WEBHOOK_URL    value: (paste the URL)
 
-3. Click Run. Check your Discord channel — your reminder should appear. 🎉
+2. Get your Discord user ID so the bot can @mention you:
+     • In Discord: Settings  →  App Settings  →  Advanced  →  toggle Developer Mode ON
+     • Back in the server, right-click your own name  →  "Copy User ID"
+     • In Replit, add another Secret →  key:  DISCORD_USER_ID    value: (paste your ID)
+
+3. Click Run. Check #automations — your reminder should appear and ping you! 🎉
 
 4. Make it automatic:  Publish  →  Scheduled Deployment
      • Run command:  python3 day-06/reminder_bot.py
@@ -63,12 +62,21 @@ def build_message():
 
 
 def send_to_discord(message):
-    """Post a message to your Discord channel using your webhook."""
+    """Post a message to the shared #automations channel using the class webhook."""
     webhook_url = os.environ.get("DISCORD_WEBHOOK_URL")
     if not webhook_url:
         print("No DISCORD_WEBHOOK_URL secret found yet.")
-        print("Add it in Tools → Secrets — see the setup steps at the top of this file.")
+        print("Your instructor will share this URL — paste it into Tools → Secrets.")
+        print("See the setup steps at the top of this file.")
         return
+
+    # If the student set their Discord user ID, prepend an @mention so they get pinged.
+    user_id = os.environ.get("DISCORD_USER_ID")
+    if user_id:
+        message = f"<@{user_id}> {message}"
+    else:
+        print("Tip: add a DISCORD_USER_ID secret so the bot @mentions you!")
+        print("(Discord → Settings → Advanced → Developer Mode, then right-click your name → Copy User ID)")
 
     data = json.dumps({"content": message}).encode("utf-8")
     request = urllib.request.Request(
@@ -77,7 +85,7 @@ def send_to_discord(message):
         headers={"Content-Type": "application/json"},
     )
     urllib.request.urlopen(request)
-    print("Sent to Discord! Go check your channel. ✅")
+    print("Sent to Discord! Go check #automations. ✅")
 
 
 if __name__ == "__main__":

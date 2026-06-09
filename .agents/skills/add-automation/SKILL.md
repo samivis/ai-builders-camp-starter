@@ -8,10 +8,10 @@ When the student is on Day 6, or says "use the add-automation skill" / "make my 
 
 ## Quick guided path: Discord homework reminder (the default Day 6 exercise)
 
-If the student just wants the fast, everyone-can-do-it automation, use the ready-made starter file `day-06/reminder_bot.py`. It posts a message to Discord on a schedule using a **webhook** — no bot token, no OAuth, no new packages. Walk them through it:
-1. **Make a webhook** in a Discord channel they can manage. If they aren't an admin of the class server, tell them to create their own free server (the green + in Discord) — they control everything there. Channel → Edit Channel → Integrations → Webhooks → New Webhook → Copy Webhook URL.
-2. **Store it as a Secret** named `DISCORD_WEBHOOK_URL` (Tools → Secrets). Never put the URL in code.
-3. **Run it** (`day-06/reminder_bot.py`) and confirm the message appears in Discord.
+If the student just wants the fast, everyone-can-do-it automation, use the ready-made starter file `day-06/reminder_bot.py`. It posts a message to the shared `#automations` channel on Discord using a **webhook** the instructor pre-created — no bot token, no OAuth, no new packages. Everyone's bots post to the same channel. Walk them through it:
+1. **Store the webhook URL** the instructor shared as a Secret named `DISCORD_WEBHOOK_URL` (Tools → Secrets). Never put the URL in code.
+2. **Get their Discord user ID** so the bot @mentions them: Discord Settings → App Settings → Advanced → toggle Developer Mode ON, then right-click their own name → Copy User ID. Store it as a Secret named `DISCORD_USER_ID`.
+3. **Run it** (`day-06/reminder_bot.py`) and confirm the message appears in `#automations` with an @mention that pings them.
 4. **Schedule it** as a Replit Scheduled Deployment with run command `python3 day-06/reminder_bot.py`, set to fire before class. Mention scheduled deployments use deployment credits.
 5. **Bonus:** flip `USE_AI = True` in the file so `ask_ai()` writes a fresh reminder each run — connecting the AI they already know to automation.
 Rescue path: if scheduling is fiddly, just clicking Run fires it — that still proves the concept.
